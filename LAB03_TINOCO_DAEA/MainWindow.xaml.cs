@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace LAB03_TINOCO_DAEA
 {
@@ -122,6 +123,42 @@ namespace LAB03_TINOCO_DAEA
                 connection.Close();
 
                 dgStudents.ItemsSource = students;
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine("Error:", err.ToString());
+            }
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            string connectionString = "Data Source=LAB1504-15\\SQLEXPRESS;Initial Catalog=prueba;User Id=admin;Password=123456";
+
+            try
+            {
+                SqlConnection connection = new SqlConnection(connectionString);
+
+                connection.Open();
+
+                string commandInsertStudent = $"INSERT INTO students (FirstName, LastName) VALUES ('{txtFirstName.Text}','{txtLastName.Text}')";
+
+                SqlCommand commandInsert = new SqlCommand(commandInsertStudent, connection);
+
+                int result = commandInsert.ExecuteNonQuery();
+
+                if(result < 0) {
+                    Console.WriteLine("Error al insertar datos");
+
+                }
+                else
+                {
+                    MessageBox.Show("Student saved successfully");
+                }
+
+                connection.Close();
+
+                txtLastName.Clear();
+                txtFirstName.Clear();
             }
             catch (Exception err)
             {

@@ -9,22 +9,36 @@
     <Grid>
 
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="300" Width="400">
-            
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                
-                <Button Margin="5" Click="Button_Click_1" >DataTable</Button>
-                
-                <Button Margin="5" Click="Button_Click">DataReader</Button>
-                
-            </StackPanel>
 
             <StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="2">Student Name</TextBlock>
+
+                    <TextBox x:Name="txtName" Margin="2" Width="140"></TextBox>
+
+                    <Button Margin="2" Click="Button_Click_2">Search</Button>
+
+                    <Button Margin="2" Click="Button_Click_1" >DataTable</Button>
+
+                    <Button Margin="2" Click="Button_Click">DataReader</Button>
+                    
+                </StackPanel>
+
+
+                <StackPanel HorizontalAlignment="Left">
+                    
+                    <TextBlock Margin="2">Student FirstName</TextBlock>
+
+                    <TextBox x:Name="txtFirstName" Margin="2" Width="200"></TextBox>
+
+                    <TextBlock Margin="2">Student LastName</TextBlock>
+
+                    <TextBox x:Name="txtLastName" Margin="2" Width="200"></TextBox>
+                    
+                </StackPanel>
                 
-                <TextBlock Margin="2">Student Name</TextBlock>
-
-                <TextBox x:Name="txtName" Margin="2"></TextBox>
-
-                <Button Margin="2" Click="Button_Click_2">Search</Button>
+                <Button Margin="2" Click="Button_Click_3">Save</Button>
 
                 <ScrollViewer  Width="400" Height="150" ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <DataGrid 
