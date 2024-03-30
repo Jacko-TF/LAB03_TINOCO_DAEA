@@ -26,10 +26,13 @@
 
                 <Button Margin="2" Click="Button_Click_2">Search</Button>
 
-                <DataGrid 
-                    x:Name="dgStudents" 
-                    Margin="2">
-                </DataGrid>
+                <ScrollViewer  Width="400" Height="150" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <DataGrid 
+                        x:Name="dgStudents" 
+                        Margin="2">
+                    </DataGrid>
+                </ScrollViewer>
+                
             </StackPanel>
 
         </StackPanel>
